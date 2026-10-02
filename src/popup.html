@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sage">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chat Translate Composer</title>
+    <link rel="stylesheet" href="themes.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 7h8M12 7l-3-3M12 7l-3 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M20 17h-8M12 17l3 3M12 17l3-3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="header-text">
+          <h1>Translate Composer</h1>
+          <p class="tagline">Write in English, send in any language</p>
+        </div>
+      </header>
+
+      <div class="group group--theme">
+        <div class="group-title">
+          <span class="section-icon" aria-hidden="true">🎨</span>
+          Appearance
+        </div>
+        <div class="theme-grid" id="themeGrid" role="radiogroup" aria-label="Choose theme"></div>
+      </div>
+
+      <div class="site-block">
+        <div class="site-block-head">
+          <span class="section-icon" aria-hidden="true">🌐</span>
+          <div id="siteHost" class="site-host">Loading current site…</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="siteEnabled" />
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span id="siteEnabledLabel" class="toggle-label">Enable on this website</span>
+        </label>
+        <p id="siteNote" class="site-note"></p>
+      </div>
+
+      <div class="group">
+        <div class="group-title">
+          <span class="section-icon" aria-hidden="true">✉️</span>
+          Messages you send
+        </div>
+        <label class="field">
+          <span class="label">Translate into</span>
+          <select id="language"></select>
+        </label>
+        <label class="field">
+          <span class="label">Model</span>
+          <select id="model"></select>
+        </label>
+        <label class="field">
+          <span class="label">Language level</span>
+          <select id="level"></select>
+        </label>
+        <label class="field">
+          <span class="label">Tone</span>
+          <select id="tone"></select>
+        </label>
+        <label class="field">
+          <span class="label">What gets sent</span>
+          <select id="outputMode">
+            <option value="both">Corrected English + translation</option>
+            <option value="translation">Translation only</option>
+            <option value="corrected">Corrected English only</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="group">
+        <div class="group-title">
+          <span class="section-icon" aria-hidden="true">💬</span>
+          Messages you receive
+        </div>
+        <label class="field">
+          <span class="label">Translate into</span>
+          <select id="readingLanguage"></select>
+        </label>
+        <label class="field">
+          <span class="label">Model</span>
+          <select id="readingModel"></select>
+        </label>
+      </div>
+
+      <div class="group group--key">
+        <label class="field">
+          <span class="label">Mistral API key</span>
+          <input type="password" id="apiKey" placeholder="Paste your API key" autocomplete="off" />
+        </label>
+      </div>
+
+      <button id="save" type="button">Save settings</button>
+      <div id="status" class="status" role="status"></div>
+
+      <p class="note">
+        Reload the tab after enabling a site or changing the API key or model. Theme changes apply instantly.
+      </p>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="themes.js"></script>
+    <script src="sites.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Chat Translate Composer",
+  "version": "1.6.0",
+  "description": "Type in English and send a corrected version plus a translation on any chat site. Enable per website from the popup — WhatsApp, Instagram, and more.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://api.mistral.ai/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "action": {
+    "default_title": "Chat Translate Composer",
+    "default_popup": "src/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/sites.js", "src/themes.js", "src/content.js"],
+      "css": ["src/themes.css", "src/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
